@@ -1,0 +1,58 @@
+Case Study: Optimizing Text Messaging App with Efficient Data Structures
+TASK 1
+Using an array for message storage would have the benefit of maintaining the order of messages as every new message can just be appended to the end.
+you could easily scroll through messages by the date of sending, but searching for a message would require looping through the array which takes more time.
+the storage overhead would not be great because the array would be constantly changing in length
+
+Linked lists would have the same advantage in the order of messages as you would just keep adding to the beginning of the linked list instead of the end, and they would be sorted by date.
+searching for a message would also have to be looping through the list, but the storage overhead of a linked list would be better than an array because the increasing in size is much less of an issue for linked lists
+
+hash tables would not be ideal because the data would not be ordered, meaning you would have to search by date when scrolling through the app
+
+a tree would not be ideal because it would not be sorted either. if you use the date as variable for how you create the tree it would just continue in one direction.
+
+
+
+TASK 2
+Short-polling would not be good to use because it would not be practical to have every client constantly polling
+Long-polling would be good to use because it uses less resources than short-polling
+A web-socket would be a very good option because it allows the client to stay connected leading to quick delivery and retrieval
+
+
+
+TASK 3
+for storing conversations it would be best to use hash tables because it would be easier to grab a specific conversation by name and the fact that it is not ordered is much less of an issue than with storing the messages
+
+
+
+
+
+Case Study: Analyzing Big O Complexity for a Sorting Algorithm
+TASK 1
+def simple_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+the algorithm above first gets the length of the array and uses it to keep track of how many spots have been sorted
+it then loops through continuosly pushing the largest value to the end until it has done that enough so that everything is garuanteed to be sorted
+
+
+
+TASK 2
+this line is constant ---> n = len(arr)
+this line is linear ---> for i in range(n):
+this line is linear but nested so it is multiplied ---> for j in range(0, n-i-1):
+this line is constant ---> if arr[j] > arr[j+1]:
+this line is also constant ---> arr[j], arr[j+1] = arr[j+1], arr[j]
+
+so the time complexity is O(n^2)
+
+
+
+TASK 3
+an improvement could be made by using a boolean that keeps track if the nested loop completes without swapping anything and returning if that happens.
+this would result in a best case time complexity of O(n) because if the array was already sorted the algorithm would recognize that and stop with just one loop
+however, tim sort would be a better sorting algorithm as it would imporve the time complexity in every scenereo, although it would have worse space complexity.
